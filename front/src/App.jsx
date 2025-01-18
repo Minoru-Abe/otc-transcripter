@@ -31,9 +31,26 @@ function App() {
       return;
     }
 
-    // Simulate file upload and processing
-    setTranscript('This is a dummy transcript.');
-    setSummary('This is a dummy summary.');
+    const formData = new FormData();
+    formData.append('file', file);
+
+    try {
+      const response = await fetch('http://localhost:8000/transcribe/', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to upload file');
+      }
+
+      const data = await response.json();
+      setTranscript(data.transcript);
+      setSummary(data.summary);
+    } catch (error) {
+      console.error('Error:', error);
+      alert('An error occurred while uploading the file.');
+    }
   };
 
   const copyToClipboard = (text) => {
