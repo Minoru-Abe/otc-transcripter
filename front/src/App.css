@@ -1,0 +1,129 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+h1 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 2.5em;
+  font-weight: 700;
+  color: #333;
+  background-color: #a8d5ba;
+  padding: 15px;
+  margin: 20px 0;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.drop-zone {
+  width: 80%;
+  /* max-width: 600px; */
+  height: 150px;
+  border: 2px dashed #a8d5ba;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  color: #333;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.drop-zone.highlight {
+  background-color: #e0f2e9;
+  border-color: #8fbf9f;
+}
+
+button {
+  width: 80%;
+  /* max-width: 300px; */
+  background-color: #a8d5ba;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+}
+
+button.disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+button:hover:not(.disabled) {
+  background-color: #8fbf9f;
+}
+
+.output-section {
+  margin: 10px auto;
+  width: 80%;
+  /* max-width: 600px; */
+}
+
+.output-box {
+  position: relative;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 5px 10px;
+  background-color: #f9f9f9;
+  min-height: 100px;
+  overflow-y: auto;
+  text-align: left;
+}
+
+.copy-icon {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  display: none;
+}
+
+.output-box:hover .copy-icon {
+  display: block;
+}.output-box p {
+  margin: 1px 0; /* 上下のmarginを減らす */
+}
+
+h1 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 2.5em;
+  font-weight: 700;
+  color: white;
+  background-color: #a8d5ba;
+  padding: 15px;
+  margin: 20px 0;
+  text-align: center;
+  border-radius: 0px;
+}
+
+h2 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.8em;
+  font-weight: 600;
+  color: #a8d5ba;
+  margin: 15px 0;
+  text-align: left;
+}
