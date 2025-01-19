@@ -32,23 +32,28 @@ async def transcribe(file: UploadFile = File(...)):
 
     # Insert into the database
     conn = await init_db()
-    await conn.execute(
+    row = await conn.fetchrow(
         """
         INSERT INTO transcript_log (filename, transcript, summary, timestamp)
         VALUES ($1, $2, $3, $4)
+        RETURNING id
         """,
         file.filename,
         transcript,
         summary,
         datetime.datetime.now()
     )
+    inserted_id = row['id']
     await conn.close()
 
     # Remove the temporary file
     os.remove(file_location)
 
+    print(inserted_id)
+
     # Return the transcript and summary
     return {
+        "id": inserted_id,
         "transcript": transcript,
         "summary": summary
     }

@@ -3,6 +3,7 @@ import './App.css';
 
 function App() {
   const [file, setFile] = useState(null);
+  const [id, setId] = useState(null);
   const [transcript, setTranscript] = useState('');
   const [summary, setSummary] = useState('');
 
@@ -45,6 +46,7 @@ function App() {
       }
 
       const data = await response.json();
+      setId(data.id);
       setTranscript(data.transcript);
       setSummary(data.summary);
     } catch (error) {
@@ -82,6 +84,7 @@ function App() {
       <button onClick={handleUpload} disabled={!file} className={!file ? 'disabled' : ''}>
         Upload and Transcribe
       </button>
+      {id && <p>Your file has been submitted, the execution id is {id}</p>}
       <div className="output-section">
         <h2>Transcript</h2>
         <div className="output-box">
